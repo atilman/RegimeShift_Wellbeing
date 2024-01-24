@@ -3,7 +3,8 @@
 
 import numpy as np
 from matplotlib import pyplot as plt
-
+# plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
+# plt.rc('text', usetex=True)
 "PARAMETERS"
 K = 10
 h = 1
@@ -14,27 +15,26 @@ eq = np.zeros((len(c_Vals),4))
 i=0
 
 "FIND EQUILIBRIA"
-for c in c_Vals:
+
+for i in range(len(c_Vals)):
+    c = c_Vals[i]
     p=[-1/K,1,-(h**2/K+c/r),h**2,0]
     eq_temp = np.roots(p)
     for j in range(len(eq_temp)):
-        if np.abs(np.imag(eq_temp[j])) > .05:
+        if np.abs(np.imag(eq_temp[j])) > .025:
             eq_temp[j] = np.nan
-
     eq[i,:] = np.real(eq_temp)
-    i=i+1
 
-"DEFINE REGIMES"
-R_12 = c_Vals[np.argwhere(np.isnan(eq[:,2]))[-1][0]]
-R_12 = 1.78
-R_23 = c_Vals[np.argwhere(np.isnan(eq[:,0]))[0][0]]
+"DEFINE REGIME Boundaries"
+R_12 = c_Vals[np.nanargmax(eq[:,2])]
+R_23 = c_Vals[np.nanargmin(eq[:,0])]
 
 "MAKE PLOTS"
 
-golden  = np.sqrt(2)
+ratio  = np.sqrt(2)
 scale = 3
- 
-fig2 = plt.figure(figsize=(golden*scale,scale))
+
+fig2 = plt.figure(figsize=(ratio*scale,scale))
 ax_1 = fig2.add_subplot(111)
 
 ax_1.plot((R_12,R_12),(0,11),'k',alpha=.4,linewidth = 1.25)
@@ -52,7 +52,7 @@ ax_1.text(2.85, 9.75, 'Regime 3', fontsize = 10)
 ax_1.set_ylim((-.05,11));
 ax_1.set_xlim((1,3.6));
 
-ax_1.set_xlabel('Extraction rate, c')
+ax_1.set_xlabel('Extraction rate, $c$')
 ax_1.set_ylabel('Environmental state, $x$');
 ax_1.legend(loc='lower right', bbox_to_anchor=(1, 0.05))
 
@@ -63,4 +63,4 @@ save = False
 
 if save == True:
     fig2.savefig("../FIGS/basins.pdf", bbox_inches='tight',dpi=150)
-    fig2.savefig("../FIGS/basins.png", bbox_inches='tight',dpi=150)
+    fig2.savefig("../FIGS/basins.png", bbox_inches='tight',dpi=1500)

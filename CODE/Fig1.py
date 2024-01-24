@@ -5,9 +5,13 @@ import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib.patches as patches
 
-
+# plt.rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
+# plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
+# plt.rc('text', usetex=True)
+# plt.rcParams['text.latex.preamble']=[r"\usepackage{amsmath}"]
 "PARAMETERS"
-
+r = 1
+K = 10
 m = 5
 n = 1/2
 
@@ -64,6 +68,10 @@ ax.set_xlabel('Environmental State',fontsize='16')
 ax.legend(loc=4)
 ax.set_xticks([])
 ax.set_yticks([])
+
+fig.text(.08, .85, 'a',weight='bold', fontsize = 16)
+fig.text(.08, .425, 'b', weight='bold',fontsize = 16)
+
 
 "SAVE FIGS"
 save = False

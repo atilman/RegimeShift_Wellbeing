@@ -3,6 +3,11 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
+# plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
+# plt.rc('text', usetex=True)
+"ECOLOGICAL PARAMETERS"
+r = 1
+K = 10
 
 "UTILITY PARAMETERS CASE 1"
 a = 3 # importance of adaptation (range of reasonable outcomes)
@@ -37,7 +42,7 @@ color1 = '#009175'
 color2 = '#da00fd'
 
 "PLOTS"
-fig3 = plt.figure(figsize=(4*np.sqrt(2),4*np.sqrt(2)))
+fig3 = plt.figure(figsize=(5.5,5.5))
 
 cx_1 = fig3.add_subplot(221)
 cx_2 = fig3.add_subplot(222)
@@ -59,7 +64,7 @@ cx_1.set_xlabel('Environmental state, $x$');
 cx_1.set_ylabel('Payoff, $\pi(x)$');
 cx_1.legend()
 
-cx_2.set_xlabel('Degree of misadaptation, $x-y$');
+cx_2.set_xlabel('Degree of maladaptation, $x-y$');
 cx_2.set_ylabel('Frac. of payoff realized');
 
 
@@ -69,6 +74,10 @@ cx_3.text(current_adapt-.4, .5, 'Adaptation state, $y$', fontsize=12,rotation=90
 cx_3.set_ylim(0,10)
 cx_3.set_xlim(0,10);
 fig3.tight_layout()
+
+fig3.text(0.035, .95, 'a',weight='bold', fontsize = 14)
+fig3.text(.5, .95, 'b', weight='bold',fontsize = 14)
+fig3.text(.035, .46, 'c', weight='bold',fontsize = 14)
 
 "SAVE FIGS"
 save = False

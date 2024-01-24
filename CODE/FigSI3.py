@@ -47,10 +47,10 @@ for i in range(sims):
             'l_mid': params_dict['l_mid'],
             'l_high': params_dict['l_high'],
             'a':params_dict['a'],
-            'm':params_dict['m'],
-            'n':params_dict['n'],
-            'm_tr':params_dict['m_tr'],
-            'n_tr':params_dict['n_tr'],
+            'm':10,
+            'n':-1/3,
+            'm_tr':27/4,
+            'n_tr':-1/15,
             'a_tr':params_dict['a_tr']
               }
 
@@ -71,13 +71,13 @@ if runSim1 == True:
             avg_pi[i] = output[i][3]
             avg_util_fixed_high[i] = output[i][4]
             avg_util_fixed_low[i] = output[i][5]
-        np.save('../DATA/avgUtil_l',avg_util_low)
-        np.save('../DATA/avgUtil_m',avg_util_mid)
-        np.save('../DATA/avgUtil_h',avg_util_high)
-        np.save('../DATA/avgUtil_fixed_h',avg_util_fixed_high)
-        np.save('../DATA/avgUtil_fixed_l',avg_util_fixed_low)
-        np.save('../DATA/avgPi',avg_pi)
-        np.save('../DATA/cSweep_1',params_dict['c_sweep'])
+        np.save('../DATA/avgUtil_ld',avg_util_low)
+        np.save('../DATA/avgUtil_md',avg_util_mid)
+        np.save('../DATA/avgUtil_hd',avg_util_high)
+        np.save('../DATA/avgUtil_fixed_hd',avg_util_fixed_high)
+        np.save('../DATA/avgUtil_fixed_ld',avg_util_fixed_low)
+        np.save('../DATA/avgPid',avg_pi)
+        np.save('../DATA/cSweep_1d',params_dict['c_sweep'])
      
 
 
@@ -95,30 +95,30 @@ if runSim2 == True:
             avg_util_tr[i] = output_tr[i][1]
             avg_pi_a[i] = output_tr[i][2]
             avg_pi_tr[i] = output_tr[i][3]
-        np.save('../DATA/avgUtil_a',avg_util_a)
-        np.save('../DATA/avgUtil_tr',avg_util_tr)
-        np.save('../DATA/avgPi_a',avg_pi_a)
-        np.save('../DATA/avgPi_tr',avg_pi_tr)
-        np.save('../DATA/cSweep_2',params_dict['c_sweep'])
+        np.save('../DATA/avgUtil_ad',avg_util_a)
+        np.save('../DATA/avgUtil_trd',avg_util_tr)
+        np.save('../DATA/avgPi_ad',avg_pi_a)
+        np.save('../DATA/avgPi_trd',avg_pi_tr)
+        np.save('../DATA/cSweep_2d',params_dict['c_sweep'])
 #%%
 
 "PLOTS"
 
 "Load data from Sim 1"
-avg_util_low = np.load('../DATA/avgUtil_l.npy')
-avg_util_mid = np.load('../DATA/avgUtil_m.npy')
-avg_util_high = np.load('../DATA/avgUtil_h.npy')
-avg_util_fixed_low = np.load('../DATA/avgUtil_fixed_l.npy')
-avg_util_fixed_high = np.load('../DATA/avgUtil_fixed_h.npy')
-avg_pi = np.load('../DATA/avgPi.npy')
-c_sweep_1 = np.load('../DATA/cSweep_1.npy')
+avg_util_low = np.load('../DATA/avgUtil_ld.npy')
+avg_util_mid = np.load('../DATA/avgUtil_md.npy')
+avg_util_high = np.load('../DATA/avgUtil_hd.npy')
+avg_util_fixed_low = np.load('../DATA/avgUtil_fixed_ld.npy')
+avg_util_fixed_high = np.load('../DATA/avgUtil_fixed_hd.npy')
+avg_pi = np.load('../DATA/avgPid.npy')
+c_sweep_1 = np.load('../DATA/cSweep_1d.npy')
 
 "Load data from Sim 2"
-avg_util_a = np.load('../DATA/avgUtil_a.npy')
-avg_util_tr = np.load('../DATA/avgUtil_tr.npy')
-avg_pi_a = np.load('../DATA/avgPi_a.npy')
-avg_pi_tr = np.load('../DATA/avgPi_tr.npy')
-c_sweep_2 = np.load('../DATA/cSweep_2.npy')
+avg_util_a = np.load('../DATA/avgUtil_ad.npy')
+avg_util_tr = np.load('../DATA/avgUtil_trd.npy')
+avg_pi_a = np.load('../DATA/avgPi_ad.npy')
+avg_pi_tr = np.load('../DATA/avgPi_trd.npy')
+c_sweep_2 = np.load('../DATA/cSweep_2d.npy')
 
 
 ratio  = np.sqrt(2)
@@ -169,10 +169,10 @@ bx.text(2.8, 3.5, 'Regime 3', fontsize = 10)
 save = False
 
 if save == True:
-    fig0.savefig("../FIGS/utility1.pdf",bbox_inches='tight')
-    fig0.savefig("../FIGS/utility1.png",bbox_inches='tight', dpi=150)
-    fig1.savefig("../FIGS/util_tr1.pdf", bbox_inches='tight')
-    fig1.savefig("../FIGS/util_tr1.png", bbox_inches='tight',dpi=150)
+    fig0.savefig("../FIGS/utility2.pdf",bbox_inches='tight')
+    fig0.savefig("../FIGS/utility2.png",bbox_inches='tight', dpi=150)
+    fig1.savefig("../FIGS/util_tr2.pdf", bbox_inches='tight')
+    fig1.savefig("../FIGS/util_tr2.png", bbox_inches='tight',dpi=150)
 
 
 

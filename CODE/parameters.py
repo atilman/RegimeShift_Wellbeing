@@ -1,21 +1,37 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Fri Jul  1 12:15:16 2022
 
+@author: AndrewTilman
+"""
 import numpy as np
 
 " MODEL PARAMETERS"
 
 "SIMULATION PARAMS"
 dt = 1 # time step (year)
-NUMYEARS = 300000
+NUMYEARS = 150000
 NUMSTEPS = int(NUMYEARS/dt) # number of steps to run 
 
 ###! Demographic parameters
 r = 1
 K = 10
+# In the deterministic case, c reaches a threshold value (c=2.604) where the ecosystem
+# undergoes a critical transition to overexploitation to a fold bifurcation
+#c = 1.5
+
+# To recreate Figure 1B in the paper, do min_c=1 and max_c=2.6771
+# min_c = 1
+# max_c = 3.0
+# c_array = np.linspace(min_c,max_c,NUMSTEPS)
+ 
+
 h = 1 #half saturation constant for type 3 fn response
 
 ###! white noise (drawn from a Gaussian distribution)
 mu = 0
+#critical slowing down dataset, sigma=0.03
+#flickering dataset, sigma=0.15
 sigma = 0.0
 
 ###! red noise parameters

@@ -120,14 +120,13 @@ ax0.scatter(c_sweep_1,avg_util_l4,label='$\overline{U}, (l = 0.001)$',color='#86
 ax0.scatter(c_sweep_1,avg_util_fixed_high,label='$\overline{U}$, high EQ',color='#8400cd',s=12,alpha=.75);
 ax0.scatter(c_sweep_1,avg_util_fixed_low,label='$\overline{U}$, low EQ',color='#ff92fd',s=12,alpha=.75);
 
-# ax0.plot([c_sweep[0],c_sweep[-1]],[outsideOpp,outsideOpp],'k--',label='Outisde option')
+
 ax0.plot((1.78,1.78),(0,11),'k',alpha=.4,linewidth = 2)
 ax0.plot((2.6,2.6),(0,11),'k',alpha=.4,linewidth = 2)
 ax0.set_ylabel('Average utility')
 ax0.set_xlabel('Extraction rate, $c$')
 ax0.set_xlim((c_sweep[0],c_sweep[-1]))
 ax0.set_ylim((0,11))
-#ax0.legend(loc='above');
 ax0.legend(bbox_to_anchor=(1,0), loc="lower left")
 ax0.text(.7, .35, 'Regime 1', fontsize = 10)
 ax0.text(1.86, .35, 'Regime 2', fontsize = 10)
@@ -135,23 +134,19 @@ ax0.text(2.73,.35, 'Regime 3', fontsize = 10)
 
 fig1 = plt.figure(figsize=(ratio*scale,scale));
 ax1 = fig1.add_subplot(111);
-# ax1.scatter(c_sweep_1,avg_pi,label='Avg. $\pi$',color='#005745',s=12,alpha=.75);
+
 ax1.scatter(c_sweep_1,avg_pi,label='$\overline{U}, (l = 1)$',color='#005745',s=12,alpha=.75);
 ax1.scatter(c_sweep_1,avg_util_l2,label='$\overline{U}, (l = 0.1)$',color='#22816C',s=12,alpha=.75);
 ax1.scatter(c_sweep_1,avg_util_l3,label='$\overline{U}, (l = 0.01)$',color='#43AB92',s=12,alpha=.75);
 ax1.scatter(c_sweep_1,avg_util_l4,label='$\overline{U}, (l = 0.001)$',color='#65D5B8',s=12,alpha=.75);
 ax1.scatter(c_sweep_1,avg_util_l5,label='$\overline{U}, (l = 0.0001)$',color='#86ffde',s=12,alpha=.75);
-# ax1.scatter(c_sweep_1,avg_util_fixed_high,label='Avg. U; high EQ',color='#8400cd',s=12,alpha=1);
-# ax1.scatter(c_sweep_1,avg_util_fixed_low,label='Avg. U; low EQ',color='#ff92fd',s=12,alpha=1);
 
-# ax0.plot([c_sweep[0],c_sweep[-1]],[outsideOpp,outsideOpp],'k--',label='Outisde option')
 ax1.plot((1.78,1.78),(0,11),'k',alpha=.4,linewidth = 2)
 ax1.plot((2.6,2.6),(0,11),'k',alpha=.4,linewidth = 2)
 ax1.set_ylabel('Average utility')
 ax1.set_xlabel('Extraction rate, $c$')
 ax1.set_xlim((c_sweep[0],c_sweep[-1]))
 ax1.set_ylim((0,11))
-#ax0.legend(loc='above');
 ax1.legend(bbox_to_anchor=(1,0), loc="lower left")
 ax1.text(.7, .35, 'Regime 1', fontsize = 10)
 ax1.text(1.86, .35, 'Regime 2', fontsize = 10)

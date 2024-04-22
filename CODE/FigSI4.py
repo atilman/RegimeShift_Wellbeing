@@ -5,8 +5,7 @@ from matplotlib import pyplot as plt
 import functions as fn
 from parameters import params_dict
 from multiprocessing import Pool
-# plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
-# plt.rc('text', usetex=True)
+
 #%%
 "SIMULATION PARAMS"
 "Params are stored in parameters.py"
@@ -130,9 +129,7 @@ ax0.scatter(c_sweep_1,avg_util_high,label='$\overline{U}, (l = 0.1)$',color='#00
 ax0.scatter(c_sweep_1,avg_util_mid,label='$\overline{U}, (l = 0.01)$',color='#00cba7',s=12,alpha=.75);
 ax0.scatter(c_sweep_1,avg_util_low,label='$\overline{U}, (l = 0.001)$',color='#86ffde',s=12,alpha=.75);
 
-# ax0.plot((1.78,1.78),(0,11),'k',alpha=.4,linewidth = 2)
-# ax0.plot((2.6,2.6),(0,11),'k',alpha=.4,linewidth = 2)
-# ax0.set_ylabel('Average utility')
+
 ax0.set_xlabel('Extraction rate, $c$')
 ax0.set_xlim((c_sweep[0],c_sweep[-1]))
 ax0.set_ylim((0,10))
@@ -158,41 +155,16 @@ for i in range(len(c_Vals)):
     eq[i,:] = np.real(eq_temp)
 ax0.plot(c_Vals,eq[:,0], color='k',linewidth = 2.5)
 ax0.plot(c_Vals,eq[:,2], color='k', label='Env. EQ',linewidth = 2.5)
-# ax0.plot(c_Vals,eq[:,1], 'k--', label='Unstable',linewidth = 2.5)
-# ax0.plot(c_Vals,eq[:,3], 'k--',linewidth = 2.5)
 ax0.legend(bbox_to_anchor=(1,0), loc="lower left")
-# fig1 = plt.figure(figsize=(ratio*scale,scale));
-# bx = fig1.add_subplot(111);
-# # bx.plot((1.78,1.78),(0,11),'k',alpha=.4,linewidth = 2)
-# # bx.plot((2.6,2.6),(0,11),'k',alpha=.4,linewidth = 2)
-# bx.scatter(c_sweep_2,avg_pi_a,label='$\overline{\pi}$, Case 1',s=12,marker='o',c = '#005745',alpha=.75);
-# bx.scatter(c_sweep_2,avg_util_a,label='$\overline{U}$, Case 1',s=12,marker='o',c = '#00cba7',alpha=.75);
-# bx.scatter(c_sweep_2,avg_pi_tr,label='$\overline{\pi}$, Case 2',s=12,marker='o',c='#8400cd',alpha=.75);
-# bx.scatter(c_sweep_2,avg_util_tr,label='$\overline{U}$, Case 2',s=12,marker='o', c = '#ff92fd',alpha=.75);
 
-# bx.set_ylabel('Average utility')
-# bx.set_xlabel('Extraction rate, $c$')
-# bx.set_xlim((c_sweep[0],c_sweep[-1]))
-# bx.set_ylim((1.8,10.2))
-# bx.legend(bbox_to_anchor=(1,0), loc="lower left")
-
-"TEXT"
-# ax0.text(.75, 3.5, 'Regime 1', fontsize = 10)
-# ax0.text(1.9, 3.5, 'Regime 2', fontsize = 10)
-# ax0.text(2.8, 3.5, 'Regime 3', fontsize = 10)
-
-# bx.text(.75, 3.5, 'Regime 1', fontsize = 10)
-# bx.text(1.9, 3.5, 'Regime 2', fontsize = 10)
-# bx.text(2.8, 3.5, 'Regime 3', fontsize = 10)
 
 "SAVE FIGS"
-save = True
+save = False
 
 if save == True:
     fig0.savefig("../FIGS/utility11.pdf",bbox_inches='tight')
     fig0.savefig("../FIGS/utility11.png",bbox_inches='tight', dpi=150)
-    # fig1.savefig("../FIGS/util_tr11.pdf", bbox_inches='tight')
-    # fig1.savefig("../FIGS/util_tr11.png", bbox_inches='tight',dpi=150)
+
 
 
 

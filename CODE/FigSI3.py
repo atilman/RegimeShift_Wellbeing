@@ -5,8 +5,7 @@ from matplotlib import pyplot as plt
 import functions as fn
 from parameters import params_dict
 from multiprocessing import Pool
-# plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
-# plt.rc('text', usetex=True)
+
 #%%
 "SIMULATION PARAMS"
 "Params are stored in parameters.py"

@@ -9,4 +9,4 @@ Tilman, Andrew R., et al. "Maintaining human wellbeing as socio-environmental sy
 DOI Link to the paper: [https://doi.org/10.1016/j.ecolecon.2024.108194](https://doi.org/10.1016/j.ecolecon.2024.108194)
 
 The code was developed in Python (3.8.10), with dependencies on NumPy (1.22.4) and Matplotlib (3.5.2).
-Figures presented in the main text and supplementary material can be generated from their correspondingly named files.
+Figures presented in the main text and supplementary material can be generated from their correspondingly named files within the 'CODE' folder.
